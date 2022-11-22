@@ -11,4 +11,9 @@ public class GameResult {
 
     private String gameMessage;
     private Integer gameTime;
+
+    public GameResult(String gameMessage, Integer gameTime) {
+        this.gameMessage = gameMessage;
+        this.gameTime = gameTime;
+    }
 }

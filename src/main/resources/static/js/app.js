@@ -328,10 +328,10 @@ function postResult(msg, time) {
         },
         body: JSON.stringify(resultData),
     }).then(res => {
-        return res.json();
+        return res.text();
     })
-        .then(json => {
-            console.log(json);
+        .then(text => {
+            console.log(text);
         })
         .catch(err => {
             console.log(err);
