@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +46,13 @@
     <p class="title"></p>
     <p class="result">
       time: <span class="time"></span><br>
-      Mines Remaining: <span class="mine"></span>
+<!--      Mines Remaining: <span class="mine"></span>-->
+      score: <span class="score"></span>
     </p>
+    <div class="btn-box">
+      <button type="button" >종료</button>
+      <button type="button" >묻고 더블로가</button>
+    </div>
   </div>
 
   <script src="/js/app.js"></script>

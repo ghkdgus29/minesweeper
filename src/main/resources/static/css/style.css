@@ -38,6 +38,18 @@ html, body {
   border-top-color: #c8b2ff;
   border-left-color: #c8b2ff;
 }
+
+.game-result .btn-box button {
+  width: 125px;
+  padding: 5px 0;
+  background: #a158ff;
+  color: #fff;
+  border: 3px solid #4c2a9c;
+  border-top-color: #c8b2ff;
+  border-left-color: #c8b2ff;
+  font-weight: bold;
+}
+
 .btn-box button:active {
   border-top-color: #4c2a9c;
   border-left-color: #4c2a9c;
@@ -210,6 +222,12 @@ html, body {
   content: 'sec';
   padding-left: 2px;
 }
+
+.game-result .score:after {
+  content: 'pts';
+  padding-left: 2px;
+}
+
 .game-result .result {
   color: #f6f6f6;
   font-size: 17px;

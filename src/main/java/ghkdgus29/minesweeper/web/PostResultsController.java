@@ -3,6 +3,8 @@ package ghkdgus29.minesweeper.web;
 import ghkdgus29.minesweeper.domain.dto.GameResult;
 import ghkdgus29.minesweeper.service.GameResultService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +16,8 @@ public class PostResultsController {
     private final GameResultService gameResultService;
 
     @PostMapping("/post-result")
-    public String getGameResult(@RequestBody GameResult gameResult) {
+    public int getGameResult(@RequestBody GameResult gameResult, Model model) {
 
-        System.out.println(gameResultService.calculateScore(gameResult));
-        return "ok";
+        return gameResultService.calculateScore(gameResult);
     }
 }

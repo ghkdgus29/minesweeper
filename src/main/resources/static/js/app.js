@@ -249,7 +249,12 @@
     function showResult(msg, time, mines) {
         $gameResult.querySelector('.title').textContent = msg;
         $gameResult.querySelector('.time').textContent = finalTime;
-        $gameResult.querySelector('.mine').textContent = minesRemain + '/' + INIT.defMines;
+
+        if (msg === 'YOU WIN') {
+            $gameResult.querySelector('.score').textContent = 999 - finalTime;
+        } else {
+            $gameResult.querySelector('.score').textContent = 0;
+        }
 
         postResult(msg, finalTime);
 
@@ -257,7 +262,6 @@
         setTimeout(function () {
             $gameResult.classList.add('move-up');
         }, 0);
-
     }
 
     function resetGame() {
