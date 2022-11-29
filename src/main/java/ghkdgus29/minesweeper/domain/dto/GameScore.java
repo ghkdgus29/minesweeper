@@ -45,4 +45,8 @@ public class GameScore {
         score = 0;
         gameCount = 1;
     }
+
+    public int getTotalMultipleScore() {
+        return score * gameCount;
+    }
 }

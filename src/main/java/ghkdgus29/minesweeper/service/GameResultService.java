@@ -21,13 +21,14 @@ public class GameResultService {
             return 0;
         }
 
+        gameScore.addScore(MAX_TIME - gameResult.getGameTime());
+
         if (!gameResult.isGameContinue()) {
-            int totalScore = gameScore.getScore();
+            int totalMultipleScore = gameScore.getTotalMultipleScore();
             gameScore.endGame();
-            return totalScore;
+            return totalMultipleScore;
         }
 
-        gameScore.addScore(MAX_TIME - gameResult.getGameTime());
         gameScore.addGameCount();
         return gameScore.getScore();
     }

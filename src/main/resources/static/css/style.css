@@ -228,8 +228,22 @@ html, body {
   padding-left: 2px;
 }
 
+.game-result #total-score:after {
+  content: 'pts';
+  padding-left: 2px;
+}
+
+.game-result .total-multiple-score:after {
+  content: 'pts';
+  padding-left: 2px;
+}
+
 .game-result .result {
   color: #f6f6f6;
   font-size: 17px;
   line-height: 1.8;
+}
+
+.game-result .ranking-score {
+  color: #ff9b00;
 }

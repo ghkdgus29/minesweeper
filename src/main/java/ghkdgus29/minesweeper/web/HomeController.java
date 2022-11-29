@@ -6,9 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @Controller
@@ -19,16 +16,13 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        log.info("gameScore={}", gameScore.getScore());
-        log.info("gameCount={}", gameScore.getGameCount());
         return "index";
     }
 
     @GetMapping("/more-mine")
     public String moreMine(Model model) {
         model.addAttribute("gameCount", gameScore.getGameCount());
-        log.info("gameScore={}", gameScore.getScore());
-        log.info("gameCount={}", gameScore.getGameCount());
+        model.addAttribute("totalScore", gameScore.getScore());
         return "more-mine";
     }
 }

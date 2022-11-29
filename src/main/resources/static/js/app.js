@@ -47,6 +47,7 @@
     let minesRemain = 0;
     let gameEndSign = "";
     let gameCount = parseInt(document.getElementById('gameCount').innerText);
+    let totalScore = parseInt(document.getElementById('total-score').innerText);
 
     $btnLevel.addEventListener('click', function (e) {
         if (e.target.nodeName === 'BUTTON') {
@@ -256,12 +257,14 @@
         if (msg === 'YOU WIN') {
             $gameResult.querySelector('.score').textContent = 999 - finalTime;
             $gameResult.querySelector('.more').style.display = '';
+            $gameResult.querySelector('#total-score').textContent = totalScore + 999 - finalTime;
+            $gameResult.querySelector('.total-multiple-score').textContent = (totalScore + 999 - finalTime) * gameCount;
         } else {
             $gameResult.querySelector('.score').textContent = 0;
             $gameResult.querySelector('.more').style.display = 'none';
+            $gameResult.querySelector('#total-score').textContent = 0;
+            $gameResult.querySelector('.total-multiple-score').textContent = 0;
         }
-
-        // postResult(msg, finalTime);
 
         $gameResult.classList.add('show');
         setTimeout(function () {

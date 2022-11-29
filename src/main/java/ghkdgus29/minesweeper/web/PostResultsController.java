@@ -20,6 +20,9 @@ public class PostResultsController {
 
     @PostMapping("/post-result")
     public int getGameResult(@RequestBody GameResult gameResult) {
-        return gameResultService.calculateScore(gameResult);
+        int totalScore = gameResultService.calculateScore(gameResult);
+        log.info("totalScore={}", totalScore);
+        return totalScore;
     }
+
 }
