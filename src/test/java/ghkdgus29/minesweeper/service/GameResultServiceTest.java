@@ -1,18 +1,18 @@
 package ghkdgus29.minesweeper.service;
 
 import ghkdgus29.minesweeper.domain.dto.GameResult;
-import org.assertj.core.api.Assertions;
+import ghkdgus29.minesweeper.domain.dto.GameScore;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameResultServiceTest {
 
     @Test
     void calculateScore() {
-        GameResult gameResult = new GameResult("GAME WIN", 99);
-        GameResultService gameResultService = new GameResultService();
+        GameResult gameResult = new GameResult("GAME WIN", true, 99, 2);
+        GameScore gameScore = new GameScore();
+        GameResultService gameResultService = new GameResultService(gameScore);
 
         int score = gameResultService.calculateScore(gameResult);
 

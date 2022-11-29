@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header class="game-title">Minesweeper</header>
+  <header class="game-title">Minesweeper x<span id="gameCount">1</span></header>
 
   <div class="container beginner">
     <div class="game-box">
@@ -41,7 +41,7 @@
     <button type="button" data-level="intermediate">Intermediate</button>
     <button type="button" data-level="expert">Expert</button>
   </div>
-  
+
   <div class="game-result">
     <p class="title"></p>
     <p class="result">
@@ -50,11 +50,12 @@
       score: <span class="score"></span>
     </p>
     <div class="btn-box">
-      <button type="button" >종료</button>
-      <button type="button" >묻고 더블로가</button>
+      <button type="button" class="game-end">종료</button>
+      <button type="button" class="more" >묻고 더블로가</button>
     </div>
   </div>
 
   <script src="/js/app.js"></script>
+
 </body>
 </html>

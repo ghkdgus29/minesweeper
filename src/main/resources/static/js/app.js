@@ -45,6 +45,8 @@
     let timerId;
     let finalTime = 0;
     let minesRemain = 0;
+    let gameEndSign = "";
+    let gameCount = parseInt(document.getElementById('gameCount').innerText);
 
     $btnLevel.addEventListener('click', function (e) {
         if (e.target.nodeName === 'BUTTON') {
@@ -249,19 +251,23 @@
     function showResult(msg, time, mines) {
         $gameResult.querySelector('.title').textContent = msg;
         $gameResult.querySelector('.time').textContent = finalTime;
+        gameEndSign = msg;
 
         if (msg === 'YOU WIN') {
             $gameResult.querySelector('.score').textContent = 999 - finalTime;
+            $gameResult.querySelector('.more').style.display = '';
         } else {
             $gameResult.querySelector('.score').textContent = 0;
+            $gameResult.querySelector('.more').style.display = 'none';
         }
 
-        postResult(msg, finalTime);
+        // postResult(msg, finalTime);
 
         $gameResult.classList.add('show');
         setTimeout(function () {
             $gameResult.classList.add('move-up');
         }, 0);
+
     }
 
     function resetGame() {
@@ -315,32 +321,41 @@
             }
         }
     }
+
+    const $btnEnd = document.querySelector('.game-end');
+
+    $btnEnd.addEventListener('click', function () {
+        postResult('/', false);
+    });
+
+    const $btnMore = document.querySelector('.more');
+
+    $btnMore.addEventListener('click', function () {
+        postResult('/more-mine', true);
+    });
+
+
+    function postResult(path, continueFlag) {
+        let resultData = {
+            gameMessage: gameEndSign,
+            gameContinue: continueFlag,
+            gameCount: gameCount,
+            gameTime: finalTime,
+        };
+
+        let url = '/post-result';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(resultData),
+        }).then(() => {
+            window.location.href = path;
+        })
+    }
 })();
 
-
-function postResult(msg, time) {
-    let resultData = {
-        gameMessage: msg,
-        gameTime: time,
-    };
-
-    let url = '/post-result';
-    fetch(url, {
-        method: 'post',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(resultData),
-    }).then(res => {
-        return res.text();
-    })
-        .then(text => {
-            console.log(text);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-}
 
 function asyncTest(msg, time) {
     let url = '/test';
