@@ -25,4 +25,10 @@ public class HomeController {
         model.addAttribute("totalScore", gameScore.getScore());
         return "more-mine";
     }
+
+    @GetMapping("/rank")
+    public String rank(Model model) {
+        model.addAttribute("totalScore", gameScore.getTotalMultipleScore());
+        return "rank";
+    }
 }

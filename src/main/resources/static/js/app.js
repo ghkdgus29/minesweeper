@@ -328,7 +328,7 @@
     const $btnEnd = document.querySelector('.game-end');
 
     $btnEnd.addEventListener('click', function () {
-        postResult('/', false);
+        rank('/rank', false);
     });
 
     const $btnMore = document.querySelector('.more');
@@ -337,6 +337,32 @@
         postResult('/more-mine', true);
     });
 
+
+    function rank(path, continueFlag) {
+        let resultData = {
+            gameMessage: gameEndSign,
+            gameContinue: continueFlag,
+            gameCount: gameCount,
+            gameTime: finalTime,
+        };
+
+        let url = '/post-result';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(resultData),
+        }).then((res) => {
+            res.text().then(function (score) {
+                if (score > 0) {
+                    window.location.href = path;
+                } else {
+                    window.location.href = '/';
+                }
+            });
+        })
+    }
 
     function postResult(path, continueFlag) {
         let resultData = {

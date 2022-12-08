@@ -41,11 +41,6 @@ public class GameScore {
         gameCount = 1;
     }
 
-    public void loseGame() {
-        score = 0;
-        gameCount = 1;
-    }
-
     public int getTotalMultipleScore() {
         return score * gameCount;
     }

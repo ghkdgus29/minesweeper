@@ -17,16 +17,14 @@ public class GameResultService {
 
         String gameEndSign = gameResult.getGameMessage().split(" ")[1];
         if (gameEndSign.equals("OVER")) {
-            gameScore.loseGame();
+            gameScore.endGame();
             return 0;
         }
 
         gameScore.addScore(MAX_TIME - gameResult.getGameTime());
 
         if (!gameResult.isGameContinue()) {
-            int totalMultipleScore = gameScore.getTotalMultipleScore();
-            gameScore.endGame();
-            return totalMultipleScore;
+            return gameScore.getTotalMultipleScore();
         }
 
         gameScore.addGameCount();
