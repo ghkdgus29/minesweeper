@@ -5,9 +5,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>rank</title>
 </head>
 <body>
-    현재 점수 !!! <span th:text="${totalScore}"></span>
+<div class="container py-4">
+    <h1>점수 등록하기</h1>
+    <div class="row">
+        <h2 class="score-board"> Final score : <span th:text="${totalScore}"></span> pts x <span
+                th:text="${gameCount}"></span> = <span
+                th:text="${totalMultipleScore}"></span> pts </h2>
+
+        <a href="new_post/" role="button" class="btn btn-primary post-btn">등록</a>
+    </div>
+</div>
 </body>
 </html>

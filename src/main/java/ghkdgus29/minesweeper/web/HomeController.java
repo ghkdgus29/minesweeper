@@ -28,7 +28,9 @@ public class HomeController {
 
     @GetMapping("/rank")
     public String rank(Model model) {
-        model.addAttribute("totalScore", gameScore.getTotalMultipleScore());
+        model.addAttribute("totalScore", gameScore.getScore());
+        model.addAttribute("gameCount", gameScore.getGameCount());
+        model.addAttribute("totalMultipleScore", gameScore.getTotalMultipleScore());
         return "rank";
     }
 }

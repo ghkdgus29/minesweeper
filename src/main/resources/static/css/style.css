@@ -247,3 +247,24 @@ html, body {
 .game-result .ranking-score {
   color: #ff9b00;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: #f6f6f6;
+}
+
+
+.score-board {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.post-btn {
+  width: 100px;
+  height: 40px;
+  margin: auto;
+}
