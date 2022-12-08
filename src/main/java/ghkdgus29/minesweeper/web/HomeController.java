@@ -1,11 +1,14 @@
 package ghkdgus29.minesweeper.web;
 
+import ghkdgus29.minesweeper.domain.Post;
 import ghkdgus29.minesweeper.domain.dto.GameScore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
@@ -16,6 +19,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
+        gameScore.initGame();
         return "index";
     }
 
@@ -33,4 +37,21 @@ public class HomeController {
         model.addAttribute("totalMultipleScore", gameScore.getTotalMultipleScore());
         return "rank";
     }
+
+    @GetMapping("/new-post")
+    public String post(Model model) {
+        model.addAttribute("post", new Post(gameScore.getTotalMultipleScore()));
+        return "new_post";
+    }
+
+    @PostMapping("/new-post")
+    public String post(@ModelAttribute Post post) {
+
+        System.out.println("post.getName() = " + post.getName());
+        System.out.println("post.getScore() = " + post.getScore());
+        System.out.println("post.getText() = " + post.getText());
+
+        return "redirect:/";
+    }
+
 }

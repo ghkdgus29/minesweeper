@@ -36,7 +36,7 @@ public class GameScore {
         log.info("현재게임시도횟수={}", this.gameCount);
     }
 
-    public void endGame() {
+    public void initGame() {
         score = 0;
         gameCount = 1;
     }

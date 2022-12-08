@@ -17,7 +17,7 @@ public class GameResultService {
 
         String gameEndSign = gameResult.getGameMessage().split(" ")[1];
         if (gameEndSign.equals("OVER")) {
-            gameScore.endGame();
+            gameScore.initGame();
             return 0;
         }
 
